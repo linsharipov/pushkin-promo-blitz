@@ -14,7 +14,7 @@ import reserve from "@/assets/posters/reserve.jpg";
 import badgood from "@/assets/posters/badgood.jpg";
 
 const shows: Show[] = [
-  { day: "2", month: "июня", title: "Инспектор пришёл", discount: 50, poster: inspector, href: "https://teatrpushkin.ru/spektakli/detail/inspektor-prishel" },
+  { day: "2", month: "июня", title: "Инспектор пришёл", discount: 50, poster: inspector, href: "https://teatrpushkin.ru/spektakli/detail/inspektor-prishel/" },
   { day: "4", month: "июня", title: "Красавец мужчина", discount: 50, poster: krasavec, href: "https://teatrpushkin.ru/spektakli/detail/krasavets-muzhchina/" },
   { day: "5", month: "июня", title: "Зойкина квартира", discount: 30, poster: zoyka, href: "https://teatrpushkin.ru/spektakli/detail/zoykina-kvartira/" },
   { day: "6", month: "июня", title: "Лицей", discount: 20, poster: licey, href: "https://teatrpushkin.ru/spektakli/detail/litsey/" },
