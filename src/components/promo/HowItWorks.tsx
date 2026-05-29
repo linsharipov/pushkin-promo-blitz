@@ -6,7 +6,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="border-y border-foreground/10 bg-secondary/40">
+    <section id="how" className="border-y border-foreground/10 bg-secondary/40">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
         <h2 className="font-display text-3xl font-bold uppercase sm:text-5xl">Как это работает</h2>
         <div className="mt-10 grid gap-6 md:grid-cols-3">

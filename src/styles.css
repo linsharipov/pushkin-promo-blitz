@@ -96,6 +96,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   * {
     border-color: var(--color-border);
   }
@@ -104,6 +108,10 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+  }
+
+  section[id] {
+    scroll-margin-top: 88px;
   }
 
   h1, h2, h3, h4, .font-display {

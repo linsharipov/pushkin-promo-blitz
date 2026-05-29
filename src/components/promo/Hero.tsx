@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
-import { Copy, Check } from "lucide-react";
+import { Copy, Check, ArrowDown } from "lucide-react";
 
 export function Hero() {
   const [copied, setCopied] = useState(false);
@@ -18,19 +18,19 @@ export function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden">
+    <section id="top" className="relative overflow-hidden">
       <div
         className="pointer-events-none absolute inset-0 opacity-70"
         style={{ background: "var(--gradient-sun)" }}
         aria-hidden
       />
-      <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-12 sm:px-6 sm:pb-24 sm:pt-20">
+      <div className="relative mx-auto max-w-6xl px-4 pb-10 pt-8 sm:px-6 sm:pb-14 sm:pt-14">
         <div className="inline-flex items-center gap-2 rounded-full border border-foreground/20 bg-background/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest backdrop-blur">
           <span className="h-2 w-2 rounded-full bg-primary" />
           Летняя акция · 2–18 июня
         </div>
 
-        <h1 className="mt-6 font-display text-[18vw] font-bold uppercase leading-[0.85] tracking-tight sm:text-[clamp(4rem,12vw,11rem)]">
+        <h1 className="mt-5 font-display text-[16vw] font-bold uppercase leading-[0.85] tracking-tight sm:text-[clamp(3.5rem,10vw,9rem)]">
           <span className="block">ЖАРА</span>
           <span
             className="block bg-clip-text text-transparent"
@@ -40,41 +40,41 @@ export function Hero() {
           </span>
         </h1>
 
-        <p className="mt-6 max-w-2xl text-lg text-foreground/75 sm:text-xl">
-          Лето в Театре имени Пушкина — со скидкой до&nbsp;50%. Используйте промокод при покупке
-          билетов на&nbsp;спектакли июня и&nbsp;спасайтесь от&nbsp;жары в&nbsp;зрительном зале.
+        <p className="mt-5 max-w-2xl text-base text-foreground/75 sm:text-lg">
+          Лето в&nbsp;Театре имени Пушкина — со&nbsp;скидкой до&nbsp;50%. Выбирайте спектакль
+          и&nbsp;применяйте промокод <span className="font-bold text-foreground">ЖАРА</span> при
+          покупке билета.
         </p>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-[auto_1fr] sm:items-center">
+        <div className="mt-7 flex flex-wrap items-center gap-3">
+          <a
+            href="#shows"
+            className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold uppercase tracking-widest text-background transition-transform hover:-translate-y-0.5 sm:text-base"
+          >
+            Выбрать спектакль
+            <ArrowDown className="h-4 w-4" />
+          </a>
+
           <button
             type="button"
             onClick={handleCopy}
-            className="group relative flex items-center gap-4 rounded-2xl border-2 border-foreground bg-accent px-6 py-5 text-left transition-transform hover:-translate-y-1 hover:-translate-x-1"
-            style={{ boxShadow: "var(--shadow-bold)" }}
+            className="group inline-flex items-center gap-3 rounded-full border-2 border-foreground bg-accent px-5 py-2.5 text-left transition-transform hover:-translate-y-0.5"
           >
-            <div>
-              <div className="text-xs font-semibold uppercase tracking-widest text-foreground/70">
-                Промокод
-              </div>
-              <div className="font-display text-4xl font-bold tracking-wider sm:text-5xl">
-                {code}
-              </div>
+            <div className="text-xs font-semibold uppercase tracking-widest text-foreground/70">
+              Промокод
             </div>
-            <div className="ml-auto flex h-12 w-12 items-center justify-center rounded-full bg-foreground text-background">
-              {copied ? <Check className="h-5 w-5" /> : <Copy className="h-5 w-5" />}
+            <div className="font-display text-xl font-bold tracking-wider sm:text-2xl">{code}</div>
+            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-foreground text-background">
+              {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
             </div>
           </button>
 
-          <div className="flex flex-col gap-2 text-sm text-foreground/70 sm:pl-2">
-            <div>
-              <span className="font-bold text-foreground">Скидка до 50%</span> на выбранные
-              спектакли
-            </div>
-            <div>
-              <span className="font-bold text-foreground">2 — 18 июня 2026</span> · только по
-              промокоду
-            </div>
-          </div>
+          <a
+            href="#how"
+            className="text-sm font-semibold uppercase tracking-widest text-foreground/70 underline-offset-4 hover:text-primary hover:underline"
+          >
+            Как это работает →
+          </a>
         </div>
       </div>
     </section>

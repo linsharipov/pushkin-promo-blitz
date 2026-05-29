@@ -1,11 +1,19 @@
-export function Logo({ className = "" }: { className?: string }) {
+import logoSrc from "@/assets/logo.png";
+
+export function Logo({
+  className = "",
+  invert = false,
+}: {
+  className?: string;
+  invert?: boolean;
+}) {
   return (
-    <div
-      className={`font-display font-bold leading-[0.85] tracking-tight ${className}`}
-      aria-label="Театр имени Пушкина"
-    >
-      <div className="text-[0.7em]">ТЕАТР ИМЕНИ</div>
-      <div>ПУШКИНА</div>
-    </div>
+    <img
+      src={logoSrc}
+      alt="Театр имени Пушкина — 75 лет"
+      className={`h-10 w-auto sm:h-12 ${invert ? "invert" : ""} ${className}`}
+      width={420}
+      height={160}
+    />
   );
 }
