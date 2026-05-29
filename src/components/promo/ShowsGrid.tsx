@@ -14,18 +14,18 @@ import reserve from "@/assets/posters/reserve.jpg";
 import badgood from "@/assets/posters/badgood.jpg";
 
 const shows: Show[] = [
-  { day: "2", month: "июня", title: "Инспектор пришёл", discount: 50, poster: inspector },
-  { day: "4", month: "июня", title: "Красавец мужчина", discount: 50, poster: krasavec },
-  { day: "5", month: "июня", title: "Зойкина квартира", discount: 30, poster: zoyka },
-  { day: "6", month: "июня", title: "Лицей", discount: 20, poster: licey },
-  { day: "7", month: "июня", title: "Мышеловка", discount: 40, poster: mousetrap },
-  { day: "9", month: "июня", title: "Тартюф", discount: 50, poster: tartuffe },
-  { day: "10", month: "июня", title: "Капитанская дочка", discount: 30, poster: captain },
-  { day: "11", month: "июня", title: "Влюблённый Шекспир", discount: 40, poster: shakespeare },
-  { day: "13", month: "июня", title: "Семейка Краузе", discount: 40, poster: krause },
-  { day: "14", month: "июня", title: "Слуга двух господ", discount: 40, poster: servant },
-  { day: "17", month: "июня", title: "Заповедник", discount: 50, poster: reserve },
-  { day: "18", month: "июня", title: "Плохие хорошие", discount: 10, poster: badgood },
+  { day: "2", month: "июня", title: "Инспектор пришёл", discount: 50, poster: inspector, href: "https://teatrpushkin.ru/spektakli/detail/inspektor-prishel" },
+  { day: "4", month: "июня", title: "Красавец мужчина", discount: 50, poster: krasavec, href: "https://teatrpushkin.ru/spektakli/detail/krasavets-muzhchina/" },
+  { day: "5", month: "июня", title: "Зойкина квартира", discount: 30, poster: zoyka, href: "https://teatrpushkin.ru/spektakli/detail/zoykina-kvartira/" },
+  { day: "6", month: "июня", title: "Лицей", discount: 20, poster: licey, href: "https://teatrpushkin.ru/spektakli/detail/litsey/" },
+  { day: "7", month: "июня", title: "Мышеловка", discount: 40, poster: mousetrap, href: "https://teatrpushkin.ru/spektakli/detail/myshelovka/" },
+  { day: "9", month: "июня", title: "Тартюф", discount: 50, poster: tartuffe, href: "https://teatrpushkin.ru/spektakli/detail/tartyuf/" },
+  { day: "10", month: "июня", title: "Капитанская дочка", discount: 30, poster: captain, href: "https://teatrpushkin.ru/spektakli/detail/kapitanskaya-dochka/" },
+  { day: "11", month: "июня", title: "Влюблённый Шекспир", discount: 40, poster: shakespeare, href: "https://teatrpushkin.ru/spektakli/detail/vlyublennyy-shekspir/" },
+  { day: "13", month: "июня", title: "Семейка Краузе", discount: 40, poster: krause, href: "https://teatrpushkin.ru/spektakli/detail/semeyka-krauze/" },
+  { day: "14", month: "июня", title: "Слуга двух господ", discount: 40, poster: servant, href: "https://teatrpushkin.ru/spektakli/detail/sluga-dvuh-gospod-russian-edition/" },
+  { day: "17", month: "июня", title: "Заповедник", discount: 50, poster: reserve, href: "https://teatrpushkin.ru/spektakli/detail/zapovednik/" },
+  { day: "18", month: "июня", title: "Плохие хорошие", discount: 10, poster: badgood, href: "https://teatrpushkin.ru/spektakli/detail/plokhie-khoroshie/" },
 ];
 
 const filters: { value: number | "all"; label: string }[] = [
