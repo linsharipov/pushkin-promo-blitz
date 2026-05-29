@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
-import { Copy, Check, ArrowDown } from "lucide-react";
+import { Copy, Check, ArrowDown, Phone } from "lucide-react";
 
 export function Hero() {
   const [copied, setCopied] = useState(false);
@@ -18,100 +18,120 @@ export function Hero() {
   };
 
   return (
-    <section id="top" className="relative overflow-hidden border-b border-border bg-background">
-      <div className="relative mx-auto grid max-w-6xl gap-8 px-4 pb-10 pt-8 sm:px-6 sm:pb-16 sm:pt-12 md:grid-cols-12 md:gap-10">
-        {/* Left: type */}
-        <div className="relative md:col-span-7">
-          <div className="inline-flex items-center gap-2 bg-primary px-3 py-1.5 text-[11px] font-bold uppercase tracking-widest text-primary-foreground">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary-foreground" />
-            Летняя акция · только 12 спектаклей
-          </div>
-
-          <h1 className="mt-5 font-display text-[15vw] font-bold uppercase leading-[0.85] tracking-tight sm:text-[clamp(3.5rem,9vw,8rem)]">
-            Жара
-            <br />
-            <span className="relative inline-block">
-              <span
-                aria-hidden
-                className="absolute -left-2 -right-2 top-[18%] bottom-[18%] -z-10 bg-accent"
-              />
-              <span className="relative">в&nbsp;театре</span>
-            </span>
-          </h1>
-
-          <p className="mt-6 max-w-xl text-base text-foreground/75 sm:text-lg">
-            Лето в&nbsp;Театре имени Пушкина — со&nbsp;скидкой до&nbsp;
-            <span className="font-bold text-primary">50%</span>. Выбирайте спектакль
-            и&nbsp;применяйте промокод <span className="font-bold text-foreground">ЖАРА</span> при
-            покупке билета.
-          </p>
-
-          <div className="mt-7 flex flex-wrap items-center gap-3">
-            <a
-              href="#shows"
-              className="inline-flex items-center gap-2 bg-foreground px-6 py-3.5 text-sm font-bold uppercase tracking-widest text-background transition-transform hover:-translate-y-0.5 sm:text-base"
-            >
-              Купить билет со скидкой
-              <ArrowDown className="h-4 w-4" />
-            </a>
-
-            <button
-              type="button"
-              onClick={handleCopy}
-              className="group inline-flex items-center gap-3 bg-accent px-5 py-3 text-left transition-transform hover:-translate-y-0.5"
-            >
-              <div className="text-[10px] font-bold uppercase tracking-widest text-foreground/70">
-                Промокод
-              </div>
-              <div className="font-display text-xl font-bold tracking-wider sm:text-2xl">
-                {code}
-              </div>
-              <div className="flex h-7 w-7 items-center justify-center bg-foreground text-background">
-                {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
-              </div>
-            </button>
-          </div>
-
-          <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs font-semibold uppercase tracking-widest text-foreground/55">
-            <span>
-              <span className="font-display text-xl font-bold text-foreground">12</span>{" "}
-              спектаклей
-            </span>
-            <span>
-              <span className="font-display text-xl font-bold text-primary">−50%</span>{" "}
-              максимум
-            </span>
-            <span>
-              <span className="font-display text-xl font-bold text-foreground">17</span>{" "}
-              дней акции
-            </span>
-          </div>
+    <section id="top" className="relative px-3 pt-6 sm:px-4 sm:pt-8">
+      <div className="mx-auto max-w-6xl">
+        {/* Tag row */}
+        <div className="flex flex-wrap items-center gap-2 px-2">
+          <span className="inline-flex items-center gap-2 rounded-full bg-foreground px-3.5 py-1.5 text-xs font-medium text-background">
+            <span className="h-1.5 w-1.5 rounded-full bg-[var(--tile-yellow)]" />
+            Летняя акция · 2–18 июня
+          </span>
+          <span className="inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-background px-3.5 py-1.5 text-xs font-medium text-foreground/70">
+            12 спектаклей · скидки до 50%
+          </span>
         </div>
 
-        {/* Right: accent block */}
-        <aside className="relative hidden md:col-span-5 md:block">
-          <div className="relative h-full min-h-[360px]">
-            <div className="absolute right-0 top-6 h-[78%] w-[78%] bg-accent" aria-hidden />
-            <div className="absolute bottom-0 left-0 h-[60%] w-[72%] border-2 border-foreground bg-background p-6">
-              <div className="text-[11px] font-bold uppercase tracking-widest text-foreground/55">
-                Касса театра
-              </div>
+        {/* Editorial headline */}
+        <h1 className="mt-6 text-[15vw] leading-[0.95] tracking-[-0.03em] sm:text-[clamp(4rem,11vw,10rem)]">
+          <span className="font-display">Лето так </span>
+          <span className="font-display italic">горячо</span>
+          <span className="font-display">,</span>
+          <br />
+          <span className="font-display">театру&nbsp;— </span>
+          <span className="relative inline-block font-display italic">
+            <span
+              aria-hidden
+              className="absolute -inset-x-2 inset-y-3 -z-10 rounded-[2rem]"
+              style={{ background: "var(--tile-yellow)" }}
+            />
+            жарче
+          </span>
+          <span className="font-display">.</span>
+        </h1>
+
+        {/* 3-tile WaxyWeb-style row */}
+        <div className="mt-8 grid gap-3 sm:gap-4 md:grid-cols-3">
+          {/* Tile 1: copy + CTA */}
+          <div
+            className="md:col-span-2 rounded-[2rem] p-6 sm:p-8"
+            style={{ background: "var(--tile-pink)" }}
+          >
+            <p className="max-w-xl text-lg leading-snug text-foreground/85 sm:text-xl">
+              Лето в&nbsp;Театре имени Пушкина — со&nbsp;скидкой до&nbsp;
+              <span className="font-display italic">50%</span>. Выбирайте спектакль
+              и&nbsp;применяйте промокод{" "}
+              <span className="font-display italic">ЖАРА</span> при покупке билета.
+            </p>
+
+            <div className="mt-6 flex flex-wrap items-center gap-3">
               <a
-                href="tel:+74956501896"
-                className="mt-2 block font-display text-3xl font-bold leading-none hover:text-primary"
+                href="#shows"
+                className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition-transform hover:-translate-y-0.5"
               >
-                +7 495 650-18-96
+                Купить билет со скидкой
+                <ArrowDown className="h-4 w-4" />
               </a>
-              <div className="mt-5 text-xs font-semibold uppercase tracking-widest text-foreground/55">
-                Действует на сайте и в кассе
-              </div>
-              <div className="mt-6 inline-flex items-center gap-2 border-t-2 border-foreground pt-4 text-xs font-bold uppercase tracking-widest">
-                <span className="h-2 w-2 bg-primary" />
-                со 2 по 18 июня 2026
-              </div>
+
+              <button
+                type="button"
+                onClick={handleCopy}
+                className="group inline-flex items-center gap-3 rounded-full border border-foreground/15 bg-background px-5 py-2.5 transition-transform hover:-translate-y-0.5"
+              >
+                <span className="text-[10px] font-semibold uppercase tracking-widest text-foreground/55">
+                  Промокод
+                </span>
+                <span className="font-display text-2xl italic">{code}</span>
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-foreground text-background">
+                  {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+                </span>
+              </button>
+            </div>
+
+            <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-2 text-xs font-medium uppercase tracking-widest text-foreground/55">
+              <span>
+                <span className="font-display text-2xl normal-case tracking-normal text-foreground">
+                  12
+                </span>{" "}
+                спектаклей
+              </span>
+              <span>
+                <span className="font-display text-2xl italic normal-case tracking-normal text-foreground">
+                  −50%
+                </span>{" "}
+                максимум
+              </span>
+              <span>
+                <span className="font-display text-2xl normal-case tracking-normal text-foreground">
+                  17
+                </span>{" "}
+                дней акции
+              </span>
             </div>
           </div>
-        </aside>
+
+          {/* Tile 2: box office */}
+          <div
+            className="flex flex-col justify-between rounded-[2rem] p-6 sm:p-8"
+            style={{ background: "var(--tile-green)" }}
+          >
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-foreground/85 px-3 py-1 text-[11px] font-medium text-background">
+                <Phone className="h-3 w-3" /> Касса театра
+              </div>
+              <a
+                href="tel:+74956941289"
+                className="mt-6 block font-display text-4xl leading-none tracking-tight hover:opacity-70 sm:text-5xl"
+              >
+                +7 495
+                <br />
+                <span className="italic">694-12-89</span>
+              </a>
+            </div>
+            <div className="mt-8 text-xs font-medium uppercase tracking-widest text-foreground/65">
+              Действует на сайте и в кассе
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
