@@ -42,6 +42,8 @@ export function ShowCard({ show }: { show: Show }) {
           </h3>
           <a
             href={show.href}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-3 inline-flex items-center justify-center self-start bg-foreground px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-background transition-colors hover:bg-primary"
           >
             Купить билет
