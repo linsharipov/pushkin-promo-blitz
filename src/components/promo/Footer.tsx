@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Youtube } from "lucide-react";
+import { Send } from "lucide-react";
 import { Logo } from "./Logo";
 
 const nav1 = ["Официальный сайт", "Афиша", "Спектакли", "Труппа"];
@@ -31,17 +31,11 @@ export function Footer() {
         <div className="md:col-span-4">
           <Logo className="text-xl" />
           <div className="mt-6 flex items-center gap-3">
-            <SocialIcon href="#" label="Facebook">
-              <Facebook className="h-4 w-4" />
-            </SocialIcon>
             <SocialIcon href="#" label="ВКонтакте">
               <span className="text-xs font-bold">VK</span>
             </SocialIcon>
-            <SocialIcon href="#" label="Instagram">
-              <Instagram className="h-4 w-4" />
-            </SocialIcon>
-            <SocialIcon href="#" label="YouTube">
-              <Youtube className="h-4 w-4" />
+            <SocialIcon href="#" label="Telegram">
+              <Send className="h-4 w-4" />
             </SocialIcon>
           </div>
           <p className="mt-8 text-sm leading-relaxed text-footer-muted">
