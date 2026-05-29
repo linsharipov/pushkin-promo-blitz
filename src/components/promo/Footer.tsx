@@ -76,8 +76,8 @@ export function Footer() {
           <div className="text-sm font-semibold uppercase tracking-wider text-footer-muted">
             Касса
           </div>
-          <a href="tel:+74956501896" className="mt-1 block text-base hover:opacity-70">
-            +7 495 650-18-96
+          <a href="tel:+74956941289" className="mt-1 block text-base hover:opacity-70">
+            +7 495 694-12-89
           </a>
           <div className="mt-6 text-base text-footer-muted">Тверской бульвар, 23</div>
           <a
