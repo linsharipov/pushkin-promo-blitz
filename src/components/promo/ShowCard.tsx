@@ -16,7 +16,7 @@ export function ShowCard({ show }: { show: Show }) {
           loading="lazy"
           width={768}
           height={960}
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="absolute inset-0 h-full w-full transition-transform duration-500 group-hover:scale-105 object-fill"
         />
         <div className="absolute left-0 top-4 bg-primary px-3 py-1.5 font-display text-lg font-bold uppercase tracking-wider text-primary-foreground">
           −{show.discount}%
