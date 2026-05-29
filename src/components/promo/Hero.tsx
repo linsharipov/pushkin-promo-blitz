@@ -40,7 +40,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-xl text-base text-foreground/75 sm:text-lg">
-            со&nbsp;скидкой до&nbsp;
+            со&nbsp;скидками до&nbsp;
             <span className="font-bold text-primary">50%</span>. Выбирайте спектакль
             и&nbsp;применяйте промокод <span className="font-bold text-foreground">ЖАРА</span> при
             покупке билета.
