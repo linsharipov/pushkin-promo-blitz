@@ -51,7 +51,7 @@ export function Hero() {
               href="#shows"
               className="inline-flex items-center gap-2 bg-foreground px-6 py-3.5 text-sm font-bold uppercase tracking-widest text-background transition-transform hover:-translate-y-0.5 sm:text-base"
             >
-              Купить билет со скидкой
+              КУПИТЬ БИЛЕТЫ СО СКИДКОЙ
               <ArrowDown className="h-4 w-4" />
             </a>
 
