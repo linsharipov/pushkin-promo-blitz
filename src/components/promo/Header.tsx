@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Copy, Check } from "lucide-react";
+import { Copy, Check, Phone } from "lucide-react";
 import { toast } from "sonner";
 import { Logo } from "./Logo";
 
@@ -32,22 +32,44 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4">
-      <div
-        className={`mx-auto flex max-w-6xl items-center gap-3 rounded-full border border-foreground/10 bg-background/85 px-3 py-2 backdrop-blur-md transition-shadow sm:px-4 ${
-          scrolled ? "shadow-[0_10px_30px_-15px_oklch(0.16_0.01_60/0.35)]" : ""
-        }`}
-      >
-        <a href="#top" className="ml-1 shrink-0">
-          <Logo className="!h-8 sm:!h-9" />
+    <header
+      className={`sticky top-0 z-50 bg-background transition-shadow ${
+        scrolled ? "shadow-[0_1px_0_0_var(--color-border)]" : ""
+      }`}
+    >
+      {/* Top utility bar */}
+      <div className="hidden border-b border-border bg-background text-xs text-foreground/70 md:block">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2 sm:px-6">
+          <div className="flex items-center gap-6">
+            <span className="font-semibold uppercase tracking-widest text-foreground/55">
+              Основная сцена
+            </span>
+            <span>Тверской бульвар, 23</span>
+            <a
+              href="tel:+74956941289"
+              className="inline-flex items-center gap-1.5 hover:text-primary"
+            >
+              <Phone className="h-3 w-3" /> +7 495 694-12-89
+            </a>
+          </div>
+          <span className="bg-primary px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-widest text-primary-foreground">
+            Акция · 2–18 июня
+          </span>
+        </div>
+      </div>
+
+      {/* Main bar */}
+      <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-3 sm:px-6 sm:py-4">
+        <a href="#top" className="shrink-0">
+          <Logo />
         </a>
 
-        <nav className="ml-auto hidden items-center gap-1 lg:flex">
+        <nav className="ml-auto hidden items-center gap-7 lg:flex">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="rounded-full px-4 py-2 text-sm font-medium text-foreground/75 transition-colors hover:bg-foreground/5 hover:text-foreground"
+              className="text-sm font-semibold uppercase tracking-widest text-foreground transition-colors hover:text-primary"
             >
               {l.label}
             </a>
@@ -57,10 +79,10 @@ export function Header() {
         <button
           type="button"
           onClick={copy}
-          className="ml-auto inline-flex items-center gap-2 rounded-full bg-foreground px-4 py-2.5 text-sm font-medium text-background transition-transform hover:-translate-y-0.5 lg:ml-0"
+          className="ml-auto inline-flex items-center gap-2 bg-accent px-4 py-2.5 font-display text-sm font-bold uppercase tracking-widest text-accent-foreground transition-transform hover:-translate-y-0.5 lg:ml-0 sm:px-5 sm:text-base"
           aria-label="Скопировать промокод ЖАРА"
         >
-          Промокод <span className="font-display italic">ЖАРА</span>
+          Промокод ЖАРА
           {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
         </button>
       </div>

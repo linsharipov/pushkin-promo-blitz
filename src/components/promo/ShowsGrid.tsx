@@ -52,26 +52,26 @@ export function ShowsGrid() {
   }, [filter, sort]);
 
   return (
-    <section id="shows" className="px-3 py-14 sm:px-4 sm:py-20">
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col gap-3 px-2 sm:flex-row sm:items-end sm:justify-between">
+    <section id="shows" className="bg-background">
+      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-background px-3.5 py-1.5 text-xs font-medium text-foreground/70">
-              <span className="h-1.5 w-1.5 rounded-full bg-foreground" />
+            <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary">
+              <span className="h-2 w-2 bg-primary" />
               12 спектаклей · промокод ЖАРА
-            </span>
-            <h2 className="mt-4 text-5xl leading-[0.95] tracking-tight sm:text-7xl">
-              <span className="font-display">Афиша </span>
-              <span className="font-display italic">со скидкой</span>
+            </div>
+            <h2 className="mt-3 flex items-end gap-4 font-display text-4xl font-bold uppercase leading-none sm:text-6xl">
+              <span className="h-3 w-12 bg-accent sm:h-4 sm:w-16" aria-hidden />
+              Афиша со&nbsp;скидкой
             </h2>
           </div>
-          <div className="text-sm text-foreground/55">
+          <div className="text-sm font-semibold uppercase tracking-widest text-foreground/60">
             Показано {visible.length} из {shows.length}
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col gap-3 lg:sticky lg:top-[88px] lg:z-30 lg:rounded-full lg:border lg:border-foreground/10 lg:bg-background/85 lg:p-2 lg:backdrop-blur">
-          <div className="-mx-3 flex items-center gap-2 overflow-x-auto px-3 pb-1 sm:mx-0 sm:flex-wrap sm:px-0 lg:flex-nowrap">
+        <div className="mt-8 flex flex-col gap-4 lg:sticky lg:top-[72px] lg:z-30 lg:-mx-2 lg:bg-background/85 lg:px-2 lg:py-3 lg:backdrop-blur">
+          <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0">
             {filters.map((f) => {
               const active = filter === f.value;
               return (
@@ -79,20 +79,22 @@ export function ShowsGrid() {
                   key={String(f.value)}
                   type="button"
                   onClick={() => setFilter(f.value)}
-                  className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                  className={`shrink-0 rounded-full border-2 px-4 py-2 text-sm font-semibold uppercase tracking-widest transition-colors ${
                     active
-                      ? "bg-foreground text-background"
-                      : "bg-foreground/5 text-foreground/70 hover:bg-foreground/10"
+                      ? "border-foreground bg-foreground text-background"
+                      : "border-foreground/20 bg-background text-foreground/70 hover:border-foreground/50"
                   }`}
                 >
                   {f.label}
                 </button>
               );
             })}
-            <div className="ml-auto hidden items-center gap-1 lg:flex">
-              <span className="px-2 text-xs font-medium uppercase tracking-widest text-foreground/45">
-                Сорт.
-              </span>
+          </div>
+          <div className="flex items-center gap-2 text-sm">
+            <span className="font-semibold uppercase tracking-widest text-foreground/60">
+              Сортировка:
+            </span>
+            <div className="inline-flex overflow-hidden rounded-full border-2 border-foreground/20">
               {(["date", "discount"] as Sort[]).map((s) => {
                 const active = sort === s;
                 return (
@@ -100,10 +102,8 @@ export function ShowsGrid() {
                     key={s}
                     type="button"
                     onClick={() => setSort(s)}
-                    className={`rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors ${
-                      active
-                        ? "bg-foreground text-background"
-                        : "text-foreground/60 hover:bg-foreground/5"
+                    className={`px-4 py-1.5 text-sm font-semibold uppercase tracking-widest transition-colors ${
+                      active ? "bg-foreground text-background" : "text-foreground/70"
                     }`}
                   >
                     {s === "date" ? "по дате" : "по скидке"}
@@ -112,36 +112,14 @@ export function ShowsGrid() {
               })}
             </div>
           </div>
-          <div className="flex items-center gap-2 px-1 lg:hidden">
-            <span className="text-xs font-medium uppercase tracking-widest text-foreground/45">
-              Сортировка:
-            </span>
-            {(["date", "discount"] as Sort[]).map((s) => {
-              const active = sort === s;
-              return (
-                <button
-                  key={s}
-                  type="button"
-                  onClick={() => setSort(s)}
-                  className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
-                    active
-                      ? "bg-foreground text-background"
-                      : "bg-foreground/5 text-foreground/60"
-                  }`}
-                >
-                  {s === "date" ? "по дате" : "по скидке"}
-                </button>
-              );
-            })}
-          </div>
         </div>
 
         {visible.length === 0 ? (
-          <p className="mt-12 text-center text-foreground/55">Спектаклей с такой скидкой нет.</p>
+          <p className="mt-12 text-center text-foreground/60">Спектаклей с такой скидкой нет.</p>
         ) : (
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {visible.map((s, i) => (
-              <ShowCard key={`${s.day}-${s.title}`} show={s} index={i} />
+            {visible.map((s) => (
+              <ShowCard key={`${s.day}-${s.title}`} show={s} />
             ))}
           </div>
         )}
