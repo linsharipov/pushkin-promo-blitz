@@ -28,7 +28,7 @@ export function Hero() {
           </div>
 
           <h1 className="mt-5 font-display text-[15vw] font-bold uppercase leading-[0.85] tracking-tight sm:text-[clamp(3.5rem,9vw,8rem)]">
-            Жара
+            Лето
             <br />
             <span className="relative inline-block">
               <span
@@ -40,7 +40,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-xl text-base text-foreground/75 sm:text-lg">
-            Лето в&nbsp;Театре имени Пушкина — со&nbsp;скидкой до&nbsp;
+            со&nbsp;скидкой до&nbsp;
             <span className="font-bold text-primary">50%</span>. Выбирайте спектакль
             и&nbsp;применяйте промокод <span className="font-bold text-foreground">ЖАРА</span> при
             покупке билета.
