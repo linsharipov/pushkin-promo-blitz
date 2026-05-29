@@ -19,7 +19,7 @@ const items = [
 
 export function Faq() {
   return (
-    <section className="border-t border-foreground/10 bg-secondary/40">
+    <section id="faq" className="border-t border-foreground/10 bg-secondary/40">
       <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20">
         <h2 className="font-display text-3xl font-bold uppercase sm:text-5xl">Условия акции</h2>
         <dl className="mt-10 space-y-4">

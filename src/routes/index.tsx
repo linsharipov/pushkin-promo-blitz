@@ -31,8 +31,8 @@ function PromoLanding() {
       <Header />
       <main>
         <Hero />
-        <HowItWorks />
         <ShowsGrid />
+        <HowItWorks />
         <Faq />
       </main>
       <Footer />
