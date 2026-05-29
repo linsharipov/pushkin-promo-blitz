@@ -56,10 +56,12 @@ export function ShowsGrid() {
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <div className="text-xs font-semibold uppercase tracking-widest text-primary">
+            <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary">
+              <span className="h-2 w-2 bg-primary" />
               12 спектаклей · промокод ЖАРА
             </div>
-            <h2 className="mt-2 font-display text-4xl font-bold uppercase leading-none sm:text-6xl">
+            <h2 className="mt-3 flex items-end gap-4 font-display text-4xl font-bold uppercase leading-none sm:text-6xl">
+              <span className="h-3 w-12 bg-accent sm:h-4 sm:w-16" aria-hidden />
               Афиша со&nbsp;скидкой
             </h2>
           </div>
