@@ -17,7 +17,7 @@ function SocialIcon({
     <a
       href={href}
       aria-label={label}
-      className="flex h-9 w-9 items-center justify-center rounded-full bg-footer-foreground text-footer transition-opacity hover:opacity-80"
+      className="flex h-10 w-10 items-center justify-center rounded-full bg-footer-foreground text-footer transition-opacity hover:opacity-80"
     >
       {children}
     </a>
