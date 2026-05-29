@@ -19,15 +19,17 @@ const items = [
 
 export function Faq() {
   return (
-    <section id="faq" className="border-t border-foreground/10 bg-secondary/40">
+    <section id="faq" className="border-t border-border bg-background">
       <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20">
-        <h2 className="font-display text-3xl font-bold uppercase sm:text-5xl">Условия акции</h2>
-        <dl className="mt-10 space-y-4">
+        <div className="flex items-end gap-4">
+          <div className="h-3 w-12 bg-accent" aria-hidden />
+          <h2 className="font-display text-3xl font-bold uppercase leading-none sm:text-5xl">
+            F.A.Q.
+          </h2>
+        </div>
+        <dl className="mt-10 divide-y-2 divide-foreground/10 border-y-2 border-foreground/10">
           {items.map((it) => (
-            <div
-              key={it.q}
-              className="rounded-xl border-2 border-foreground bg-background p-5 sm:p-6"
-            >
+            <div key={it.q} className="py-5 sm:py-6">
               <dt className="font-display text-lg font-bold uppercase sm:text-xl">{it.q}</dt>
               <dd className="mt-2 text-foreground/75">{it.a}</dd>
             </div>
