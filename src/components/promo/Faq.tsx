@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { Plus } from "lucide-react";
+
 const items = [
   {
     q: "Как воспользоваться скидкой?",
@@ -18,23 +21,49 @@ const items = [
 ];
 
 export function Faq() {
+  const [open, setOpen] = useState<number | null>(0);
+
   return (
-    <section id="faq" className="border-t border-border bg-background">
-      <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20">
-        <div className="flex items-end gap-4">
-          <div className="h-3 w-12 bg-accent" aria-hidden />
-          <h2 className="font-display text-3xl font-bold uppercase leading-none sm:text-5xl">
-            F.A.Q.
-          </h2>
+    <section id="faq" className="px-3 py-16 sm:px-4 sm:py-24">
+      <div className="mx-auto max-w-4xl">
+        <h2 className="px-2 text-5xl leading-[0.95] tracking-tight sm:text-7xl">
+          <span className="font-display">Частые </span>
+          <span className="font-display italic">вопросы</span>
+        </h2>
+
+        <div className="mt-10 space-y-2">
+          {items.map((it, i) => {
+            const isOpen = open === i;
+            return (
+              <div
+                key={it.q}
+                className="rounded-[1.5rem] border border-foreground/10 bg-background transition-colors"
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpen(isOpen ? null : i)}
+                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left sm:px-7 sm:py-6"
+                >
+                  <span className="font-display text-xl leading-snug tracking-tight sm:text-2xl">
+                    {it.q}
+                  </span>
+                  <span
+                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-foreground text-background transition-transform ${
+                      isOpen ? "rotate-45" : ""
+                    }`}
+                  >
+                    <Plus className="h-4 w-4" />
+                  </span>
+                </button>
+                {isOpen && (
+                  <div className="px-6 pb-6 text-base text-foreground/75 sm:px-7 sm:pb-7">
+                    {it.a}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
-        <dl className="mt-10 divide-y-2 divide-foreground/10 border-y-2 border-foreground/10">
-          {items.map((it) => (
-            <div key={it.q} className="py-5 sm:py-6">
-              <dt className="font-display text-lg font-bold uppercase sm:text-xl">{it.q}</dt>
-              <dd className="mt-2 text-foreground/75">{it.a}</dd>
-            </div>
-          ))}
-        </dl>
       </div>
     </section>
   );

@@ -1,31 +1,49 @@
 const steps = [
-  { n: "01", title: "Выберите спектакль", text: "Откройте афишу акции и выберите дату в июне." },
-  { n: "02", title: "Введите промокод", text: "Укажите промокод ЖАРА при оформлении билета." },
-  { n: "03", title: "Получите скидку", text: "Цена снизится автоматически — до 50% от номинала." },
+  {
+    n: "01",
+    title: "Выберите спектакль",
+    text: "Откройте афишу акции и выберите дату в июне.",
+    tile: "var(--tile-sky)",
+  },
+  {
+    n: "02",
+    title: "Введите промокод",
+    text: "Укажите промокод ЖАРА при оформлении билета.",
+    tile: "var(--tile-pink)",
+  },
+  {
+    n: "03",
+    title: "Получите скидку",
+    text: "Цена снизится автоматически — до 50% от номинала.",
+    tile: "var(--tile-yellow)",
+  },
 ];
 
 export function HowItWorks() {
   return (
-    <section id="how" className="border-y border-border bg-background">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-        <div className="flex items-end gap-4">
-          <div className="h-3 w-12 bg-accent" aria-hidden />
-          <h2 className="font-display text-3xl font-bold uppercase leading-none sm:text-5xl">
-            Как это работает
-          </h2>
-        </div>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+    <section id="how" className="px-3 py-16 sm:px-4 sm:py-24">
+      <div className="mx-auto max-w-6xl">
+        <h2 className="px-2 text-5xl leading-[0.95] tracking-tight sm:text-7xl">
+          <span className="font-display">Как это </span>
+          <span className="font-display italic">работает</span>
+        </h2>
+
+        <div className="mt-10 grid gap-3 sm:gap-4 md:grid-cols-3">
           {steps.map((s) => (
             <div
               key={s.n}
-              className="relative border-t-2 border-foreground bg-background pt-6 transition-transform hover:-translate-y-1"
+              className="flex flex-col justify-between rounded-[2rem] p-6 transition-transform hover:-translate-y-1 sm:p-8"
+              style={{ background: s.tile, minHeight: "260px" }}
             >
-              <div className="relative inline-block">
-                <span aria-hidden className="absolute -left-1 -top-1 h-8 w-8 bg-accent" />
-                <div className="relative font-display text-5xl font-bold">{s.n}</div>
+              <span className="inline-flex w-fit items-center rounded-full bg-foreground/85 px-3 py-1 text-[11px] font-medium text-background">
+                Шаг {s.n}
+              </span>
+              <div className="mt-6">
+                <h3 className="font-display text-3xl leading-tight tracking-tight sm:text-4xl">
+                  {s.title}
+                </h3>
+                <p className="mt-3 text-base text-foreground/75">{s.text}</p>
               </div>
-              <h3 className="mt-4 font-display text-xl font-bold uppercase">{s.title}</h3>
-              <p className="mt-2 text-foreground/70">{s.text}</p>
             </div>
           ))}
         </div>
