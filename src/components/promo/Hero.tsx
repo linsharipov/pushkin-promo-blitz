@@ -81,10 +81,6 @@ export function Hero() {
               <span className="font-display text-xl font-bold text-primary">−50%</span>{" "}
               максимум
             </span>
-            <span>
-              <span className="font-display text-xl font-bold text-foreground">17</span>{" "}
-              дней акции
-            </span>
           </div>
         </div>
 
