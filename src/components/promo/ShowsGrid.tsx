@@ -1,5 +1,17 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ShowCard, type Show } from "./ShowCard";
+
+const SEASON_YEAR = 2026;
+const MONTHS_RU: Record<string, number> = {
+  января: 0, февраля: 1, марта: 2, апреля: 3, мая: 4, июня: 5,
+  июля: 6, августа: 7, сентября: 8, октября: 9, ноября: 10, декабря: 11,
+};
+
+// 19:00 МСК = 16:00 UTC
+function showEndUtcMs(day: string, month: string): number {
+  const m = MONTHS_RU[month] ?? 0;
+  return Date.UTC(SEASON_YEAR, m, Number(day), 16, 0, 0);
+}
 import inspector from "@/assets/posters/inspector.jpg";
 import krasavec from "@/assets/posters/krasavec.jpg";
 import zoyka from "@/assets/posters/zoyka.jpg";
