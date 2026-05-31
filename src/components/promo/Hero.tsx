@@ -93,10 +93,10 @@ export function Hero() {
                 Касса театра
               </div>
               <a
-                href="tel:+74956501896"
+                href="tel:+74956941289"
                 className="mt-2 block font-display text-3xl font-bold leading-none hover:text-primary"
               >
-                +7 495 650-18-96
+                +7 495 694-12-89
               </a>
               <div className="mt-5 text-xs font-semibold uppercase tracking-widest text-foreground/55">
                 Действует на сайте и в кассе
