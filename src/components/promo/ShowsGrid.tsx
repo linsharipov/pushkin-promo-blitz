@@ -1,5 +1,17 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ShowCard, type Show } from "./ShowCard";
+
+const SEASON_YEAR = 2026;
+const MONTHS_RU: Record<string, number> = {
+  января: 0, февраля: 1, марта: 2, апреля: 3, мая: 4, июня: 5,
+  июля: 6, августа: 7, сентября: 8, октября: 9, ноября: 10, декабря: 11,
+};
+
+// 19:00 МСК = 16:00 UTC
+function showEndUtcMs(day: string, month: string): number {
+  const m = MONTHS_RU[month] ?? 0;
+  return Date.UTC(SEASON_YEAR, m, Number(day), 16, 0, 0);
+}
 import inspector from "@/assets/posters/inspector.jpg";
 import krasavec from "@/assets/posters/krasavec.jpg";
 import zoyka from "@/assets/posters/zoyka.jpg";
@@ -42,14 +54,25 @@ type Sort = "date" | "discount";
 export function ShowsGrid() {
   const [filter, setFilter] = useState<number | "all">("all");
   const [sort, setSort] = useState<Sort>("date");
+  const [now, setNow] = useState(() => Date.now());
+
+  useEffect(() => {
+    const id = setInterval(() => setNow(Date.now()), 60_000);
+    return () => clearInterval(id);
+  }, []);
+
+  const upcoming = useMemo(
+    () => shows.filter((s) => now < showEndUtcMs(s.day, s.month)),
+    [now],
+  );
 
   const visible = useMemo(() => {
-    const list = filter === "all" ? shows : shows.filter((s) => s.discount === filter);
+    const list = filter === "all" ? upcoming : upcoming.filter((s) => s.discount === filter);
     return [...list].sort((a, b) => {
       if (sort === "discount") return b.discount - a.discount;
       return Number(a.day) - Number(b.day);
     });
-  }, [filter, sort]);
+  }, [filter, sort, upcoming]);
 
   return (
     <section id="shows" className="bg-background">
@@ -66,7 +89,7 @@ export function ShowsGrid() {
             </h2>
           </div>
           <div className="text-sm font-semibold uppercase tracking-widest text-foreground/60">
-            Показано {visible.length} из {shows.length}
+            Показано {visible.length} из {upcoming.length}
           </div>
         </div>
 
