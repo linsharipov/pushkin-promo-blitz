@@ -54,14 +54,25 @@ type Sort = "date" | "discount";
 export function ShowsGrid() {
   const [filter, setFilter] = useState<number | "all">("all");
   const [sort, setSort] = useState<Sort>("date");
+  const [now, setNow] = useState(() => Date.now());
+
+  useEffect(() => {
+    const id = setInterval(() => setNow(Date.now()), 60_000);
+    return () => clearInterval(id);
+  }, []);
+
+  const upcoming = useMemo(
+    () => shows.filter((s) => now < showEndUtcMs(s.day, s.month)),
+    [now],
+  );
 
   const visible = useMemo(() => {
-    const list = filter === "all" ? shows : shows.filter((s) => s.discount === filter);
+    const list = filter === "all" ? upcoming : upcoming.filter((s) => s.discount === filter);
     return [...list].sort((a, b) => {
       if (sort === "discount") return b.discount - a.discount;
       return Number(a.day) - Number(b.day);
     });
-  }, [filter, sort]);
+  }, [filter, sort, upcoming]);
 
   return (
     <section id="shows" className="bg-background">
