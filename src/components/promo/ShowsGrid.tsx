@@ -89,7 +89,7 @@ export function ShowsGrid() {
             </h2>
           </div>
           <div className="text-sm font-semibold uppercase tracking-widest text-foreground/60">
-            Показано {visible.length} из {shows.length}
+            Показано {visible.length} из {upcoming.length}
           </div>
         </div>
 
