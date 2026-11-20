@@ -46,11 +46,7 @@ export function Hero() {
 
       <div className="relative -mt-24 px-4 pb-12 sm:-mt-28 sm:pb-16">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <div className="inline-flex items-center gap-2 border border-accent/60 bg-background/60 px-3 py-1.5 text-[11px] font-bold uppercase tracking-widest text-accent backdrop-blur">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-            Ноябрь — декабрь 2026 · 10 показов
-          </div>
-          <p className="mt-4 max-w-xl text-base text-foreground/85 sm:text-lg">
+          <p className=" max-w-xl text-base text-foreground/85 sm:text-lg">
             Скидка <span className="font-bold text-accent">30%</span> на&nbsp;избранные спектакли
             ноября и&nbsp;декабря по&nbsp;промокоду{" "}
             <span className="font-bold text-foreground">{PROMO_CODE}</span>.
@@ -79,12 +75,6 @@ export function Hero() {
                 {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
               </div>
             </button>
-          </div>
-          <div className="mt-5 text-xs font-semibold uppercase tracking-widest text-foreground/60">
-            Касса театра:{" "}
-            <a href="tel:+74956941289" className="text-foreground hover:text-accent">
-              +7 495 694-12-89
-            </a>
           </div>
         </div>
       </div>

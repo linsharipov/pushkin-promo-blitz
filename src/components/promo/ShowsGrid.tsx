@@ -7,7 +7,6 @@ const monthOf = (iso: string) => new Date(new Date(iso).getTime() + 3 * 3600_000
 
 export function ShowsGrid() {
   const [month, setMonth] = useState<Month>("all");
-  const [title, setTitle] = useState<string>("all");
   const [now, setNow] = useState(() => Date.now());
 
   useEffect(() => {
@@ -16,15 +15,13 @@ export function ShowsGrid() {
   }, []);
 
   const upcoming = useMemo(() => upcomingShows(shows, now), [now]);
-  const titles = useMemo(() => Array.from(new Set(upcoming.map((s) => s.title))), [upcoming]);
 
   const visible = useMemo(
     () =>
       upcoming
         .filter((s) => month === "all" || monthOf(s.start) === month)
-        .filter((s) => title === "all" || s.title === title)
         .sort((a, b) => a.start.localeCompare(b.start)),
-    [upcoming, month, title],
+    [upcoming, month],
   );
 
   const pill = (active: boolean) =>
@@ -39,10 +36,7 @@ export function ShowsGrid() {
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <div className="text-xs font-bold uppercase tracking-widest text-accent">
-              −30% · промокод ПУШКА30
-            </div>
-            <h2 className="mt-3 font-display text-4xl font-bold uppercase leading-none sm:text-6xl">
+            <h2 className="font-display text-4xl font-bold uppercase leading-none sm:text-6xl">
               Афиша со&nbsp;скидкой
             </h2>
           </div>
@@ -60,16 +54,6 @@ export function ShowsGrid() {
                 </button>
               ),
             )}
-          </div>
-          <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0">
-            <button type="button" onClick={() => setTitle("all")} className={pill(title === "all")}>
-              Все спектакли
-            </button>
-            {titles.map((t) => (
-              <button key={t} type="button" onClick={() => setTitle(t)} className={pill(title === t)}>
-                {t}
-              </button>
-            ))}
           </div>
         </div>
 

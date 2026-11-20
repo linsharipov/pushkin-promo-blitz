@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Copy, Check, Phone } from "lucide-react";
-import { toast } from "sonner";
+import { Phone } from "lucide-react";
 import { Logo } from "./Logo";
 
 const links = [
@@ -11,25 +10,12 @@ const links = [
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [copied, setCopied] = useState(false);
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const copy = async () => {
-    try {
-      await navigator.clipboard.writeText("ПУШКА30");
-      setCopied(true);
-      toast.success("Промокод ПУШКА30 скопирован");
-      setTimeout(() => setCopied(false), 1800);
-    } catch {
-      toast.error("Не удалось скопировать");
-    }
-  };
 
   return (
     <header
@@ -76,15 +62,12 @@ export function Header() {
           ))}
         </nav>
 
-        <button
-          type="button"
-          onClick={copy}
-          className="ml-auto inline-flex items-center gap-2 bg-gold px-4 py-2.5 font-display text-sm font-bold uppercase tracking-widest text-accent-foreground transition-transform hover:-translate-y-0.5 lg:ml-0 sm:px-5 sm:text-base"
-          aria-label="Скопировать промокод ПУШКА30"
+        <a
+          href="#shows"
+          className="ml-auto inline-flex items-center bg-gold px-4 py-2.5 font-display text-sm font-bold uppercase tracking-widest text-accent-foreground transition-transform hover:-translate-y-0.5 lg:ml-0 sm:px-5 sm:text-base"
         >
-          ПУШКА30
-          {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-        </button>
+          Купить билеты
+        </a>
       </div>
     </header>
   );
