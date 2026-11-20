@@ -2,6 +2,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { Copy, Check, ArrowDown } from "lucide-react";
 import stage from "@/assets/black_friday_stage.png.asset.json";
+import stageWide from "@/assets/black_friday_stage_wide.png.asset.json";
 
 export const PROMO_CODE = "ПУШКА30";
 
@@ -28,16 +29,27 @@ export function Hero() {
         aria-hidden="true"
         className="absolute inset-0 -z-20 h-full w-full scale-110 object-cover opacity-50 blur-2xl"
       />
-      <div className="relative mx-auto -z-10 max-w-3xl">
+      <div className="relative mx-auto -z-10 max-w-3xl md:hidden">
         <img
           src={stage.url}
           alt="Чёрная пятница в Театре имени Пушкина — скидка 30%"
           width={1024}
           height={1536}
-          className="block aspect-[2/3] max-h-[100vh] w-full object-cover object-[center_35%] sm:aspect-auto sm:h-[92vh]"
+          className="block aspect-[2/3] max-h-[100vh] w-full object-cover object-[center_35%]"
         />
         <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background/80 via-background/20 to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-background/80 via-background/20 to-transparent" />
+      </div>
+      <div className="relative -z-10 hidden md:block">
+        <img
+          src={stageWide.url}
+          alt="Чёрная пятница в Театре имени Пушкина — скидка 30%"
+          width={1570}
+          height={1002}
+          className="block h-[88vh] min-h-[560px] w-full object-cover object-[center_40%]"
+        />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-background/80 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-background/80 to-transparent" />
       </div>
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-background to-transparent" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[35%] bg-gradient-to-t from-background via-background/70 to-transparent" />

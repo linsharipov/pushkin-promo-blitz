@@ -27,9 +27,6 @@ export function Header() {
       <div className="hidden border-b border-border bg-background text-xs text-foreground/70 md:block">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2 sm:px-6">
           <div className="flex items-center gap-6">
-            <span className="font-semibold uppercase tracking-widest text-foreground/55">
-              Основная сцена
-            </span>
             <span>Тверской бульвар, 23</span>
             <a
               href="tel:+74956941289"
