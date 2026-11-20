@@ -3,7 +3,6 @@ export type Show = {
   title: string;
   discount: number;
   poster?: string;
-  posterFit?: "contain";
   href: string;
 };
 
@@ -33,7 +32,7 @@ export function ShowCard({ show }: { show: Show }) {
             loading="lazy"
             width={768}
             height={960}
-            className={`absolute inset-0 h-full w-full object-center ${show.posterFit === "contain" ? "object-contain" : "object-cover transition-transform duration-500 group-hover:scale-105"}`}
+            className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center p-6 text-center">
