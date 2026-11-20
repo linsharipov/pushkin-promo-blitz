@@ -20,27 +20,42 @@ export function Hero() {
   };
 
   return (
-    <section id="top" className="relative overflow-hidden border-b border-border bg-background">
-      <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 pb-12 pt-8 sm:px-6 sm:pb-16 sm:pt-12 md:grid-cols-12">
-        <div className="relative md:col-span-7">
-          <div className="inline-flex items-center gap-2 border border-accent/60 px-3 py-1.5 text-[11px] font-bold uppercase tracking-widest text-accent">
+    <section id="top" className="relative isolate overflow-hidden bg-background">
+      {/* blurred ambient fill so the portrait visual spreads across wide screens */}
+      <img
+        src={stage.url}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 -z-20 h-full w-full scale-110 object-cover opacity-50 blur-2xl"
+      />
+      <div className="relative mx-auto -z-10 max-w-3xl">
+        <img
+          src={stage.url}
+          alt="Чёрная пятница в Театре имени Пушкина — скидка 30%"
+          width={1024}
+          height={1536}
+          className="block aspect-[2/3] max-h-[100vh] w-full object-cover object-[center_35%] sm:aspect-auto sm:h-[92vh]"
+        />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background/80 via-background/20 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-background/80 via-background/20 to-transparent" />
+      </div>
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-background to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[35%] bg-gradient-to-t from-background via-background/70 to-transparent" />
+
+      <h1 className="sr-only">Чёрная пятница в Театре имени Пушкина — скидка 30% по промокоду {PROMO_CODE}</h1>
+
+      <div className="relative -mt-24 px-4 pb-12 sm:-mt-28 sm:pb-16">
+        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+          <div className="inline-flex items-center gap-2 border border-accent/60 bg-background/60 px-3 py-1.5 text-[11px] font-bold uppercase tracking-widest text-accent backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             Ноябрь — декабрь 2026 · 10 показов
           </div>
-
-          <h1 className="mt-5 font-display text-[14vw] font-bold uppercase leading-[0.88] tracking-tight sm:text-[clamp(3.5rem,8vw,7rem)]">
-            Чёрная
-            <br />
-            <span className="bg-gold bg-clip-text text-transparent">пятница</span>
-          </h1>
-
-          <p className="mt-6 max-w-xl text-base text-foreground/75 sm:text-lg">
+          <p className="mt-4 max-w-xl text-base text-foreground/85 sm:text-lg">
             Скидка <span className="font-bold text-accent">30%</span> на&nbsp;избранные спектакли
-            ноября и&nbsp;декабря. Выбирайте вечер и&nbsp;вводите промокод{" "}
-            <span className="font-bold text-foreground">{PROMO_CODE}</span> при покупке билета.
+            ноября и&nbsp;декабря по&nbsp;промокоду{" "}
+            <span className="font-bold text-foreground">{PROMO_CODE}</span>.
           </p>
-
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <a
               href="#shows"
               className="inline-flex items-center gap-2 bg-gold px-6 py-3.5 text-sm font-bold uppercase tracking-widest text-accent-foreground shadow-glow transition-transform hover:-translate-y-0.5 sm:text-base"
@@ -48,7 +63,6 @@ export function Hero() {
               Купить билеты со скидкой
               <ArrowDown className="h-4 w-4" />
             </a>
-
             <button
               type="button"
               onClick={handleCopy}
@@ -66,24 +80,11 @@ export function Hero() {
               </div>
             </button>
           </div>
-
-          <div className="mt-8 text-xs font-semibold uppercase tracking-widest text-foreground/55">
+          <div className="mt-5 text-xs font-semibold uppercase tracking-widest text-foreground/60">
             Касса театра:{" "}
             <a href="tel:+74956941289" className="text-foreground hover:text-accent">
               +7 495 694-12-89
             </a>
-          </div>
-        </div>
-
-        <div className="relative md:col-span-5">
-          <div className="relative mx-auto max-w-sm overflow-hidden border border-accent/40 shadow-glow md:max-w-none">
-            <img
-              src={stage.url}
-              alt="Чёрная пятница в Театре имени Пушкина — скидка 30%"
-              width={1024}
-              height={1536}
-              className="block aspect-[2/3] h-auto w-full object-cover"
-            />
           </div>
         </div>
       </div>
