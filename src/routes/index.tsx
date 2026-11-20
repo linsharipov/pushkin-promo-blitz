@@ -9,17 +9,19 @@ import { Footer } from "@/components/promo/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Жара в Театре Пушкина — скидки до 50% в июне по промокоду ЖАРА" },
+      { title: "Чёрная пятница в Театре Пушкина — скидка 30% по промокоду ПУШКА30" },
       {
         name: "description",
         content:
-          "Летняя акция Театра имени Пушкина: скидки до 50% на спектакли со 2 по 18 июня по промокоду ЖАРА.",
+          "Чёрная пятница в Театре имени Пушкина: скидка 30% на избранные спектакли ноября и декабря 2026 по промокоду ПУШКА30.",
       },
-      { property: "og:title", content: "Жара в Театре Пушкина — скидки до 50%" },
+      { property: "og:title", content: "Чёрная пятница в Театре Пушкина — −30%" },
       {
         property: "og:description",
-        content: "Промокод ЖАРА: скидки до 50% на спектакли июня в Театре имени Пушкина.",
+        content: "Промокод ПУШКА30: скидка 30% на спектакли ноября и декабря в Театре имени Пушкина.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: PromoLanding,

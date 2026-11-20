@@ -22,9 +22,9 @@ export function Header() {
 
   const copy = async () => {
     try {
-      await navigator.clipboard.writeText("ЖАРА");
+      await navigator.clipboard.writeText("ПУШКА30");
       setCopied(true);
-      toast.success("Промокод ЖАРА скопирован");
+      toast.success("Промокод ПУШКА30 скопирован");
       setTimeout(() => setCopied(false), 1800);
     } catch {
       toast.error("Не удалось скопировать");
@@ -53,7 +53,7 @@ export function Header() {
             </a>
           </div>
           <span className="bg-primary px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-widest text-primary-foreground">
-            Акция · 2–18 июня
+            Чёрная пятница · −30%
           </span>
         </div>
       </div>
@@ -61,7 +61,7 @@ export function Header() {
       {/* Main bar */}
       <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-3 sm:px-6 sm:py-4">
         <a href="#top" className="shrink-0">
-          <Logo />
+          <Logo invert />
         </a>
 
         <nav className="ml-auto hidden items-center gap-7 lg:flex">
@@ -79,10 +79,10 @@ export function Header() {
         <button
           type="button"
           onClick={copy}
-          className="ml-auto inline-flex items-center gap-2 bg-accent px-4 py-2.5 font-display text-sm font-bold uppercase tracking-widest text-accent-foreground transition-transform hover:-translate-y-0.5 lg:ml-0 sm:px-5 sm:text-base"
-          aria-label="Скопировать промокод ЖАРА"
+          className="ml-auto inline-flex items-center gap-2 bg-gold px-4 py-2.5 font-display text-sm font-bold uppercase tracking-widest text-accent-foreground transition-transform hover:-translate-y-0.5 lg:ml-0 sm:px-5 sm:text-base"
+          aria-label="Скопировать промокод ПУШКА30"
         >
-          Промокод ЖАРА
+          ПУШКА30
           {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
         </button>
       </div>

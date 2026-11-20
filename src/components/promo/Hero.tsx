@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import { Copy, Check, ArrowDown } from "lucide-react";
+import stage from "@/assets/black_friday_stage.png.asset.json";
+
+export const PROMO_CODE = "ПУШКА30";
 
 export function Hero() {
   const [copied, setCopied] = useState(false);
-  const code = "ЖАРА";
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(code);
+      await navigator.clipboard.writeText(PROMO_CODE);
       setCopied(true);
       toast.success("Промокод скопирован");
       setTimeout(() => setCopied(false), 2000);
@@ -19,95 +21,71 @@ export function Hero() {
 
   return (
     <section id="top" className="relative overflow-hidden border-b border-border bg-background">
-      <div className="relative mx-auto grid max-w-6xl gap-8 px-4 pb-10 pt-8 sm:px-6 sm:pb-16 sm:pt-12 md:grid-cols-12 md:gap-10">
-        {/* Left: type */}
+      <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 pb-12 pt-8 sm:px-6 sm:pb-16 sm:pt-12 md:grid-cols-12">
         <div className="relative md:col-span-7">
-          <div className="inline-flex items-center gap-2 bg-primary px-3 py-1.5 text-[11px] font-bold uppercase tracking-widest text-primary-foreground">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary-foreground" />
-            Летняя акция · только 12 спектаклей
+          <div className="inline-flex items-center gap-2 border border-accent/60 px-3 py-1.5 text-[11px] font-bold uppercase tracking-widest text-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            Ноябрь — декабрь 2026 · 10 показов
           </div>
 
-          <h1 className="mt-5 font-display text-[15vw] font-bold uppercase leading-[0.85] tracking-tight sm:text-[clamp(3.5rem,9vw,8rem)]">
-            Лето
+          <h1 className="mt-5 font-display text-[14vw] font-bold uppercase leading-[0.88] tracking-tight sm:text-[clamp(3.5rem,8vw,7rem)]">
+            Чёрная
             <br />
-            <span className="relative inline-block">
-              <span
-                aria-hidden
-                className="absolute -left-2 -right-2 top-[18%] bottom-[18%] -z-10 bg-accent"
-              />
-              <span className="relative">в&nbsp;театре</span>
-            </span>
+            <span className="bg-gold bg-clip-text text-transparent">пятница</span>
           </h1>
 
           <p className="mt-6 max-w-xl text-base text-foreground/75 sm:text-lg">
-            со&nbsp;скидками до&nbsp;
-            <span className="font-bold text-primary">50%</span>. Выбирайте спектакль
-            и&nbsp;применяйте промокод <span className="font-bold text-foreground">ЖАРА</span> при
-            покупке билета.
+            Скидка <span className="font-bold text-accent">30%</span> на&nbsp;избранные спектакли
+            ноября и&nbsp;декабря. Выбирайте вечер и&nbsp;вводите промокод{" "}
+            <span className="font-bold text-foreground">{PROMO_CODE}</span> при покупке билета.
           </p>
 
-          <div className="mt-7 flex flex-wrap items-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href="#shows"
-              className="inline-flex items-center gap-2 bg-foreground px-6 py-3.5 text-sm font-bold uppercase tracking-widest text-background transition-transform hover:-translate-y-0.5 sm:text-base"
+              className="inline-flex items-center gap-2 bg-gold px-6 py-3.5 text-sm font-bold uppercase tracking-widest text-accent-foreground shadow-glow transition-transform hover:-translate-y-0.5 sm:text-base"
             >
-              КУПИТЬ БИЛЕТЫ СО СКИДКОЙ
+              Купить билеты со скидкой
               <ArrowDown className="h-4 w-4" />
             </a>
 
             <button
               type="button"
               onClick={handleCopy}
-              className="group inline-flex items-center gap-3 bg-accent px-5 py-3 text-left transition-transform hover:-translate-y-0.5"
+              className="relative inline-flex items-center gap-3 border-2 border-dashed border-accent bg-velvet px-5 py-3 text-left transition-transform hover:-translate-y-0.5"
+              aria-label={`Скопировать промокод ${PROMO_CODE}`}
             >
               <div className="text-[10px] font-bold uppercase tracking-widest text-foreground/70">
                 Промокод
               </div>
-              <div className="font-display text-xl font-bold tracking-wider sm:text-2xl">
-                {code}
+              <div className="font-display text-xl font-bold tracking-wider text-accent sm:text-2xl">
+                {PROMO_CODE}
               </div>
-              <div className="flex h-7 w-7 items-center justify-center bg-foreground text-background">
+              <div className="flex h-7 w-7 items-center justify-center bg-accent text-accent-foreground">
                 {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
               </div>
             </button>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs font-semibold uppercase tracking-widest text-foreground/55">
-            <span>
-              <span className="font-display text-xl font-bold text-foreground">12</span>{" "}
-              спектаклей
-            </span>
-            <span>
-              <span className="font-display text-xl font-bold text-primary">−50%</span>{" "}
-              максимум
-            </span>
+          <div className="mt-8 text-xs font-semibold uppercase tracking-widest text-foreground/55">
+            Касса театра:{" "}
+            <a href="tel:+74956941289" className="text-foreground hover:text-accent">
+              +7 495 694-12-89
+            </a>
           </div>
         </div>
 
-        {/* Right: accent block */}
-        <aside className="relative hidden md:col-span-5 md:block">
-          <div className="relative h-full min-h-[360px]">
-            <div className="absolute right-0 top-6 h-[78%] w-[78%] bg-accent" aria-hidden />
-            <div className="absolute bottom-0 left-0 h-[60%] w-[72%] border-2 border-foreground bg-background p-6">
-              <div className="text-[11px] font-bold uppercase tracking-widest text-foreground/55">
-                Касса театра
-              </div>
-              <a
-                href="tel:+74956941289"
-                className="mt-2 block font-display text-3xl font-bold leading-none hover:text-primary"
-              >
-                +7 495 694-12-89
-              </a>
-              <div className="mt-5 text-xs font-semibold uppercase tracking-widest text-foreground/55">
-                Действует на сайте и в кассе
-              </div>
-              <div className="mt-6 inline-flex items-center gap-2 border-t-2 border-foreground pt-4 text-xs font-bold uppercase tracking-widest">
-                <span className="h-2 w-2 bg-primary" />
-                со 2 по 18 июня 2026
-              </div>
-            </div>
+        <div className="relative md:col-span-5">
+          <div className="relative mx-auto max-w-sm overflow-hidden border border-accent/40 shadow-glow md:max-w-none">
+            <img
+              src={stage.url}
+              alt="Чёрная пятница в Театре имени Пушкина — скидка 30%"
+              width={1024}
+              height={1536}
+              className="block aspect-[2/3] h-auto w-full object-cover"
+            />
           </div>
-        </aside>
+        </div>
       </div>
     </section>
   );

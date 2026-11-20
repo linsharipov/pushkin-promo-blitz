@@ -11,7 +11,7 @@ export function Logo({
     <img
       src={logoSrc}
       alt="Театр имени Пушкина"
-      className={`h-10 w-auto sm:h-12 ${invert ? "invert brightness-0" : ""} ${className}`}
+      className={`h-10 w-auto sm:h-12 ${invert ? "brightness-0 invert" : ""} ${className}`}
       width={304}
       height={83}
     />

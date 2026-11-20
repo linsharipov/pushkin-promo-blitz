@@ -1,7 +1,7 @@
 const steps = [
-  { n: "01", title: "Выберите спектакль", text: "Откройте афишу акции и выберите дату в июне." },
-  { n: "02", title: "Введите промокод", text: "Укажите промокод ЖАРА при оформлении билета." },
-  { n: "03", title: "Получите скидку", text: "Цена снизится автоматически — до 50% от номинала." },
+  { n: "01", title: "Выберите спектакль", text: "Откройте афишу акции и выберите дату в ноябре или декабре." },
+  { n: "02", title: "Введите промокод", text: "Укажите промокод ПУШКА30 при оформлении билета." },
+  { n: "03", title: "Получите скидку", text: "Цена снизится автоматически — на 30% от номинала." },
 ];
 
 export function HowItWorks() {
@@ -18,7 +18,7 @@ export function HowItWorks() {
           {steps.map((s) => (
             <div
               key={s.n}
-              className="relative border-t-2 border-foreground bg-background pt-6 transition-transform hover:-translate-y-1"
+              className="relative border-t-2 border-accent bg-background pt-6 transition-transform hover:-translate-y-1"
             >
               <div className="relative inline-block">
                 <span aria-hidden className="absolute -left-1 -top-1 h-8 w-8 bg-accent" />

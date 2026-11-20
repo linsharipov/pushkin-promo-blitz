@@ -37,37 +37,32 @@
 
 :root {
   --radius: 0.25rem;
-  /* Pure white like teatrpushkin.ru */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.15 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0 0);
-  /* Alert red — for sale tags & urgency */
-  --primary: oklch(0.58 0.24 27);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.15 0 0);
-  --muted: oklch(0.96 0 0);
-  --muted-foreground: oklch(0.45 0 0);
-  /* Theatre yellow #fdb92f */
-  --accent: #fdb92f;
-  --accent-foreground: oklch(0.15 0 0);
-  --destructive: oklch(0.58 0.24 27);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.9 0 0);
-  --input: oklch(0.9 0 0);
-  --ring: oklch(0.58 0.24 27);
-
-  --footer: oklch(0.13 0 0);
-  --footer-foreground: oklch(0.98 0 0);
-  --footer-muted: oklch(0.65 0 0);
-
-  --gradient-heat: linear-gradient(135deg, oklch(0.58 0.24 27), oklch(0.88 0.18 92));
-  --gradient-sun: radial-gradient(circle at 80% 20%, oklch(0.88 0.18 92 / 0.55), transparent 60%);
-  --shadow-bold: 8px 8px 0 0 oklch(0.15 0 0);
-  --shadow-soft: 0 20px 40px -20px oklch(0.15 0 0 / 0.25);
+  /* Золотой зал: тёплый почти чёрный, золото, бордовый бархат */
+  --background: oklch(0.14 0.01 40);
+  --foreground: oklch(0.95 0.02 85);
+  --card: oklch(0.18 0.015 35);
+  --card-foreground: oklch(0.95 0.02 85);
+  --popover: oklch(0.18 0.015 35);
+  --popover-foreground: oklch(0.95 0.02 85);
+  --primary: oklch(0.42 0.15 22);
+  --primary-foreground: oklch(0.96 0.03 85);
+  --secondary: oklch(0.22 0.02 35);
+  --secondary-foreground: oklch(0.95 0.02 85);
+  --muted: oklch(0.22 0.02 35);
+  --muted-foreground: oklch(0.7 0.03 80);
+  --accent: oklch(0.8 0.12 82);
+  --accent-foreground: oklch(0.14 0.01 40);
+  --destructive: oklch(0.58 0.2 27);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.8 0.12 82 / 0.25);
+  --input: oklch(0.8 0.12 82 / 0.3);
+  --ring: oklch(0.8 0.12 82);
+  --footer: oklch(0.1 0.008 40);
+  --footer-foreground: oklch(0.95 0.02 85);
+  --footer-muted: oklch(0.65 0.03 80);
+  --gradient-gold: linear-gradient(135deg, oklch(0.88 0.11 88), oklch(0.68 0.13 70));
+  --gradient-velvet: linear-gradient(160deg, oklch(0.42 0.15 22), oklch(0.22 0.08 20));
+  --shadow-glow: 0 0 40px -10px oklch(0.8 0.12 82 / 0.5);
 }
 
 .dark {
@@ -94,6 +89,10 @@
   --footer-foreground: oklch(0.98 0.005 85);
   --footer-muted: oklch(0.65 0.01 60);
 }
+
+@utility bg-gold { background-image: var(--gradient-gold); }
+@utility bg-velvet { background-image: var(--gradient-velvet); }
+@utility shadow-glow { box-shadow: var(--shadow-glow); }
 
 @layer base {
   html {
