@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import { Copy, Check, ArrowDown } from "lucide-react";
-import stage from "@/assets/black_friday_stage.png.asset.json";
-import stageWide from "@/assets/black_friday_stage_wide.png.asset.json";
+import stage from "@/assets/black_friday_stage.png";
+import stageWide from "@/assets/black_friday_stage_wide.png";
 
 export const PROMO_CODE = "ПУШКА30";
 
@@ -24,14 +24,14 @@ export function Hero() {
     <section id="top" className="relative isolate overflow-hidden bg-background">
       {/* blurred ambient fill so the portrait visual spreads across wide screens */}
       <img
-        src={stage.url}
+        src={stage}
         alt=""
         aria-hidden="true"
         className="absolute inset-0 -z-20 h-full w-full scale-110 object-cover opacity-50 blur-2xl"
       />
       <div className="relative mx-auto -z-10 max-w-3xl md:hidden">
         <img
-          src={stage.url}
+          src={stage}
           alt="Чёрная пятница в Театре имени Пушкина — скидка 30%"
           width={1024}
           height={1536}
@@ -42,7 +42,7 @@ export function Hero() {
       </div>
       <div className="relative -z-10 hidden md:block">
         <img
-          src={stageWide.url}
+          src={stageWide}
           alt="Чёрная пятница в Театре имени Пушкина — скидка 30%"
           width={1570}
           height={1002}
