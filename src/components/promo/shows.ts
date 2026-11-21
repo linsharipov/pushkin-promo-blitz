@@ -3,7 +3,7 @@ import tartuffe from "@/assets/posters/tartuffe.jpg";
 import shakespeare from "@/assets/posters/shakespeare.jpg";
 import servant from "@/assets/posters/servant.jpg";
 import krasavec from "@/assets/posters/handsome-man.jpg.asset.json";
-import threeIvans from "@/assets/posters/three-ivans.jpg.asset.json";
+import threeIvans from "@/assets/posters/three-ivans-stage.png.asset.json";
 import idiot from "@/assets/posters/idiot.jpg.asset.json";
 import tomorrowWasWar from "@/assets/posters/tomorrow-was-war.jpg.asset.json";
 
