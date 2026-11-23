@@ -21,11 +21,13 @@ describe("Black Friday shows", () => {
     expect(shows).toHaveLength(10);
     expect(shows.every((s) => s.discount === 30)).toBe(true);
   });
-  it("hides the 12 Dec matinee at 12:00 MSK", () => {
-    const before = upcomingShows(shows, Date.parse("2026-12-12T08:59:00Z"));
-    const after = upcomingShows(shows, Date.parse("2026-12-12T09:00:00Z"));
-    expect(before.some((s) => s.start.startsWith("2026-12-12"))).toBe(true);
-    expect(after.some((s) => s.start.startsWith("2026-12-12"))).toBe(false);
+  it.each(["2026-11-29", "2026-12-12", "2026-12-27"])("starts Три Ивана at 12:00 MSK and hides it at that time on %s", (date) => {
+    const show = shows.find((s) => s.title === "Три Ивана" && s.start.startsWith(date));
+    expect(show?.start).toBe(`${date}T12:00:00+03:00`);
+    const before = upcomingShows(shows, Date.parse(`${date}T08:59:00Z`));
+    const after = upcomingShows(shows, Date.parse(`${date}T09:00:00Z`));
+    expect(before.some((s) => s === show)).toBe(true);
+    expect(after.some((s) => s === show)).toBe(false);
   });
   it("hides Тартюф at 19:00 MSK on 28 Nov", () => {
     expect(upcomingShows(shows, Date.parse("2026-11-28T16:00:00Z")).some((s) => s.title === "Тартюф")).toBe(false);
