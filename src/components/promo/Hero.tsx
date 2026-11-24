@@ -35,7 +35,7 @@ export function Hero() {
           alt="Чёрная пятница в Театре имени Пушкина — скидки до 40%"
           width={1570}
           height={1002}
-          className="block aspect-[4/5] max-h-[100vh] w-full object-cover object-[center_45%]"
+          className="block aspect-[3/2] w-full object-cover object-center"
         />
         <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background/80 via-background/20 to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-background/80 via-background/20 to-transparent" />
