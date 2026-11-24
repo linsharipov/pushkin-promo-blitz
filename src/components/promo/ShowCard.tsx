@@ -2,6 +2,8 @@ export type Show = {
   start: string; // ISO with +03:00
   title: string;
   discount: number;
+  promoCode: string;
+  availableFrom?: string; // ISO; card hidden before this moment
   poster?: string;
   href: string;
 };
@@ -60,6 +62,9 @@ export function ShowCard({ show }: { show: Show }) {
           <h3 className="font-display text-lg font-bold uppercase leading-tight sm:text-xl">
             {show.title}
           </h3>
+          <p className="mt-1 text-xs font-semibold uppercase tracking-widest text-foreground/60">
+            Промокод <span className="text-accent">{show.promoCode}</span>
+          </p>
           <a
             href={show.href}
             target="_blank"

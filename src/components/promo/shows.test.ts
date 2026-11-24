@@ -17,9 +17,28 @@ describe("Black Friday shows", () => {
     const show = shows.find((s) => s.start.startsWith(date) && s.title === title);
     expect(show?.href).toBe(`https://${host}/widget/wv2/ticket-selection?eventId=${event}&performanceId=${performance}&agentId=${agent}&system_name=pushkin`);
   });
-  it("has 10 performances, all 30% off", () => {
-    expect(shows).toHaveLength(10);
-    expect(shows.every((s) => s.discount === 30)).toBe(true);
+  it("has 10 Nov–Dec performances at 30% with ПУШКА30 and 12 January at 40% with ПУШКА40", () => {
+    expect(shows).toHaveLength(22);
+    const jan = shows.filter((s) => s.start.startsWith("2027-01"));
+    expect(jan).toHaveLength(12);
+    expect(jan.every((s) => s.discount === 40 && s.promoCode === "ПУШКА40")).toBe(true);
+    expect(shows.filter((s) => !s.start.startsWith("2027")).every((s) => s.discount === 30 && s.promoCode === "ПУШКА30")).toBe(true);
+  });
+  it("shows January cards only from 25 Nov 00:00 MSK", () => {
+    const jan = (now: number) => upcomingShows(shows, now).filter((s) => s.start.startsWith("2027")).length;
+    expect(jan(Date.parse("2026-11-24T20:59:00Z"))).toBe(0);
+    expect(jan(Date.parse("2026-11-24T21:00:00Z"))).toBe(12);
+  });
+  it.each([
+    ["2027-01-09T12:00", "Три Ивана", 60719054], ["2027-01-10T12:00", "Аленький цветочек", 60719043],
+    ["2027-01-10T19:00", "Тартюф", 60837812], ["2027-01-14T19:00", "Сделка", 61570842],
+    ["2027-01-15T19:00", "Идиот", 61544312], ["2027-01-16T19:00", "Завтра была война", 61544424],
+    ["2027-01-21T19:00", "Заповедник", 61547284], ["2027-01-26T19:00", "Космос", 61568104],
+    ["2027-01-29T19:00", "Завтра была война", 61568113], ["2027-01-30T12:00", "Три Ивана", 61568133],
+    ["2027-01-30T19:00", "Идиот", 61568118], ["2027-01-31T19:00", "Слуга двух господ", 61568126],
+  ])("January %s %s links to performance %s", (start, title, perf) => {
+    const show = shows.find((s) => s.start.startsWith(start) && s.title === title);
+    expect(show?.href).toContain(`performanceId=${perf}&agentId=museum110_notmos`);
   });
   it.each(["2026-11-29", "2026-12-12", "2026-12-27"])("starts Три Ивана at 12:00 MSK and hides it at that time on %s", (date) => {
     const show = shows.find((s) => s.title === "Три Ивана" && s.start.startsWith(date));
@@ -30,6 +49,6 @@ describe("Black Friday shows", () => {
     expect(after.some((s) => s === show)).toBe(false);
   });
   it("hides Тартюф at 19:00 MSK on 28 Nov", () => {
-    expect(upcomingShows(shows, Date.parse("2026-11-28T16:00:00Z")).some((s) => s.title === "Тартюф")).toBe(false);
+    expect(upcomingShows(shows, Date.parse("2026-11-28T16:00:00Z")).some((s) => s.title === "Тартюф" && s.start.startsWith("2026-11-28"))).toBe(false);
   });
 });
