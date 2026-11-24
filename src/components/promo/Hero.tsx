@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import { Copy, Check, ArrowDown } from "lucide-react";
+import stage from "@/assets/black_friday_stage.png";
 import stageWide from "@/assets/black_friday_stage_wide.png";
 
 export const PROMO_CODE = "ПУШКА30";
@@ -31,11 +32,11 @@ export function Hero() {
       />
       <div className="relative mx-auto -z-10 max-w-3xl md:hidden">
         <img
-          src={stageWide}
+          src={stage}
           alt="Чёрная пятница в Театре имени Пушкина — скидки до 40%"
-          width={1570}
-          height={1002}
-          className="block aspect-[3/2] w-full object-cover object-center"
+          width={1024}
+          height={1536}
+          className="block aspect-[2/3] max-h-[100vh] w-full object-cover object-[center_35%]"
         />
         <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background/80 via-background/20 to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-background/80 via-background/20 to-transparent" />
@@ -56,7 +57,7 @@ export function Hero() {
 
       <h1 className="sr-only">Чёрная пятница в Театре имени Пушкина — скидки до 40% по промокодам {PROMO_CODE} и {PROMO_CODE_JAN}</h1>
 
-      <div className="relative -mt-2 px-4 pb-12 md:-mt-28 sm:pb-16">
+      <div className="relative -mt-24 px-4 pb-12 md:-mt-28 sm:pb-16">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <p className=" max-w-xl text-base text-foreground/85 sm:text-lg">
             Скидка <span className="font-bold text-accent">30%</span> на&nbsp;спектакли ноября и&nbsp;декабря

@@ -13,7 +13,7 @@ function files(directory: string): string[] {
 
 describe("self-hosted image assets", () => {
   it.each([
-    ["black_friday_stage.png", 2203889],
+    ["black_friday_stage.png", 1851753],
     ["black_friday_stage_wide.png", 1805311],
     ["posters/handsome-man.jpg", 512857],
     ["posters/three-ivans-stage.png", 1271854],

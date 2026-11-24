@@ -7,6 +7,8 @@ import threeIvans from "@/assets/posters/three-ivans-stage.png";
 import idiot from "@/assets/posters/idiot.jpg";
 import reserve from "@/assets/posters/reserve.jpg";
 import scarletFlower from "@/assets/posters/scarlet-flower.jpg";
+import deal from "@/assets/posters/deal.jpg";
+import cosmos from "@/assets/posters/cosmos.jpg";
 import tomorrowWasWar from "@/assets/posters/tomorrow-was-war.jpg";
 
 const JAN_FROM = "2026-11-25T00:00:00+03:00";
@@ -27,11 +29,11 @@ export const shows: Show[] = [
   { start: "2027-01-09T12:00:00+03:00", title: "Три Ивана", discount: 40, promoCode: "ПУШКА40", availableFrom: JAN_FROM, poster: threeIvans, href: ext(71670, 60719054) },
   { start: "2027-01-10T12:00:00+03:00", title: "Аленький цветочек", discount: 40, promoCode: "ПУШКА40", availableFrom: JAN_FROM, poster: scarletFlower, href: ext(90922, 60719043) },
   { start: "2027-01-10T19:00:00+03:00", title: "Тартюф", discount: 40, promoCode: "ПУШКА40", availableFrom: JAN_FROM, poster: tartuffe, href: ext(71607, 60837812) },
-  { start: "2027-01-14T19:00:00+03:00", title: "Сделка", discount: 40, promoCode: "ПУШКА40", availableFrom: JAN_FROM, href: ext(68649, 61570842) },
+  { start: "2027-01-14T19:00:00+03:00", title: "Сделка", discount: 40, promoCode: "ПУШКА40", availableFrom: JAN_FROM, poster: deal, href: ext(68649, 61570842) },
   { start: "2027-01-15T19:00:00+03:00", title: "Идиот", discount: 40, promoCode: "ПУШКА40", availableFrom: JAN_FROM, poster: idiot, href: ext(116238, 61544312) },
   { start: "2027-01-16T19:00:00+03:00", title: "Завтра была война", discount: 40, promoCode: "ПУШКА40", availableFrom: JAN_FROM, poster: tomorrowWasWar, href: ext(68700, 61544424) },
   { start: "2027-01-21T19:00:00+03:00", title: "Заповедник", discount: 40, promoCode: "ПУШКА40", availableFrom: JAN_FROM, poster: reserve, href: ext(68683, 61547284) },
-  { start: "2027-01-26T19:00:00+03:00", title: "Космос", discount: 40, promoCode: "ПУШКА40", availableFrom: JAN_FROM, href: ext(68709, 61568104) },
+  { start: "2027-01-26T19:00:00+03:00", title: "Космос", discount: 40, promoCode: "ПУШКА40", availableFrom: JAN_FROM, poster: cosmos, href: ext(68709, 61568104) },
   { start: "2027-01-29T19:00:00+03:00", title: "Завтра была война", discount: 40, promoCode: "ПУШКА40", availableFrom: JAN_FROM, poster: tomorrowWasWar, href: ext(68700, 61568113) },
   { start: "2027-01-30T12:00:00+03:00", title: "Три Ивана", discount: 40, promoCode: "ПУШКА40", availableFrom: JAN_FROM, poster: threeIvans, href: ext(71670, 61568133) },
   { start: "2027-01-30T19:00:00+03:00", title: "Идиот", discount: 40, promoCode: "ПУШКА40", availableFrom: JAN_FROM, poster: idiot, href: ext(116238, 61568118) },
