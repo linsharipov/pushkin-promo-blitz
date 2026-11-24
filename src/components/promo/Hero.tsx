@@ -56,7 +56,7 @@ export function Hero() {
 
       <h1 className="sr-only">Чёрная пятница в Театре имени Пушкина — скидки до 40% по промокодам {PROMO_CODE} и {PROMO_CODE_JAN}</h1>
 
-      <div className="relative -mt-24 px-4 pb-12 sm:-mt-28 sm:pb-16">
+      <div className="relative -mt-2 px-4 pb-12 md:-mt-28 sm:pb-16">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <p className=" max-w-xl text-base text-foreground/85 sm:text-lg">
             Скидка <span className="font-bold text-accent">30%</span> на&nbsp;спектакли ноября и&nbsp;декабря
