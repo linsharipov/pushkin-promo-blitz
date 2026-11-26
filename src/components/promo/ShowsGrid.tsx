@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ShowCard } from "./ShowCard";
 import { shows, upcomingShows } from "./shows";
 
-type Month = "all" | 10 | 11 | 0;
+type Month = "all" | 10 | 11 | 0 | 1;
 const monthOf = (iso: string) => new Date(new Date(iso).getTime() + 3 * 3600_000).getUTCMonth();
 
 export function ShowsGrid() {
@@ -47,7 +47,7 @@ export function ShowsGrid() {
 
         <div className="mt-8 flex flex-col gap-3 lg:sticky lg:top-[72px] lg:z-30 lg:-mx-2 lg:bg-background/85 lg:px-2 lg:py-3 lg:backdrop-blur">
           <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0">
-            {([["all", "Все даты"], [10, "Ноябрь"], [11, "Декабрь"], [0, "Январь"]] as [Month, string][]).map(
+            {([["all", "Все даты"], [10, "Ноябрь"], [11, "Декабрь"], [0, "Январь"], [1, "Февраль"]] as [Month, string][]).map(
               ([v, l]) => (
                 <button key={String(v)} type="button" onClick={() => setMonth(v)} className={pill(month === v)}>
                   {l}

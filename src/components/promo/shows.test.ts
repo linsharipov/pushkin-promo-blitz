@@ -18,14 +18,14 @@ describe("Black Friday shows", () => {
     expect(show?.href).toBe(`https://${host}/widget/wv2/ticket-selection?eventId=${event}&performanceId=${performance}&agentId=${agent}&system_name=pushkin`);
   });
   it("has 10 Nov–Dec performances at 30% with ПУШКА30 and 12 January at 40% with ПУШКА40", () => {
-    expect(shows).toHaveLength(22);
+    expect(shows).toHaveLength(30);
     const jan = shows.filter((s) => s.start.startsWith("2027-01"));
     expect(jan).toHaveLength(12);
     expect(jan.every((s) => s.discount === 40 && s.promoCode === "ПУШКА40")).toBe(true);
     expect(shows.filter((s) => !s.start.startsWith("2027")).every((s) => s.discount === 30 && s.promoCode === "ПУШКА30")).toBe(true);
   });
   it("shows January cards only from 25 Nov 00:00 MSK", () => {
-    const jan = (now: number) => upcomingShows(shows, now).filter((s) => s.start.startsWith("2027")).length;
+    const jan = (now: number) => upcomingShows(shows, now).filter((s) => s.start.startsWith("2027-01")).length;
     expect(jan(Date.parse("2026-11-24T20:59:00Z"))).toBe(0);
     expect(jan(Date.parse("2026-11-24T21:00:00Z"))).toBe(12);
   });
@@ -50,5 +50,22 @@ describe("Black Friday shows", () => {
   });
   it("hides Тартюф at 19:00 MSK on 28 Nov", () => {
     expect(upcomingShows(shows, Date.parse("2026-11-28T16:00:00Z")).some((s) => s.title === "Тартюф" && s.start.startsWith("2026-11-28"))).toBe(false);
+  });
+  it("has 8 February performances at 50% with ПУШКА50, shown from 27 Nov 00:00 MSK", () => {
+    const feb = shows.filter((s) => s.start.startsWith("2027-02"));
+    expect(feb).toHaveLength(8);
+    expect(feb.every((s) => s.discount === 50 && s.promoCode === "ПУШКА50")).toBe(true);
+    const n = (now: number) => upcomingShows(shows, now).filter((s) => s.start.startsWith("2027-02")).length;
+    expect(n(Date.parse("2026-11-26T20:59:00Z"))).toBe(0);
+    expect(n(Date.parse("2026-11-26T21:00:00Z"))).toBe(8);
+  });
+  it.each([
+    ["2027-02-02T19:00", "Эта прекрасная жизнь", 62565634], ["2027-02-03T19:00", "Ложные признания", 62579938],
+    ["2027-02-06T12:00", "Три Ивана", 62582369], ["2027-02-18T19:00", "Сделка", 62583482],
+    ["2027-02-25T19:00", "Заповедник", 62584698], ["2027-02-27T12:00", "Три Ивана", 62582371],
+    ["2027-02-27T19:00", "Инспектор пришёл", 62584703], ["2027-02-28T19:00", "Тартюф", 62584706],
+  ])("February %s %s links to performance %s", (start, title, perf) => {
+    const show = shows.find((s) => s.start.startsWith(start) && s.title === title);
+    expect(show?.href).toContain(`performanceId=${perf}&agentId=museum110_notmos`);
   });
 });

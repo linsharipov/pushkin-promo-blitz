@@ -10,8 +10,12 @@ import scarletFlower from "@/assets/posters/scarlet-flower.jpg";
 import deal from "@/assets/posters/deal.jpg";
 import cosmos from "@/assets/posters/cosmos.jpg";
 import tomorrowWasWar from "@/assets/posters/tomorrow-was-war.jpg";
+import inspector from "@/assets/posters/inspector.jpg";
+import beautifulLife from "@/assets/posters/beautiful-life.jpg";
+import falseConfessions from "@/assets/posters/false-confessions.png";
 
 const JAN_FROM = "2026-11-25T00:00:00+03:00";
+const FEB_FROM = "2026-11-27T00:00:00+03:00";
 const ext = (e: number, p: number) =>
   `https://tickets-external.mos.ru/widget/wv2/ticket-selection?eventId=${e}&performanceId=${p}&agentId=museum110_notmos&system_name=pushkin`;
 
@@ -38,6 +42,14 @@ export const shows: Show[] = [
   { start: "2027-01-30T12:00:00+03:00", title: "Три Ивана", discount: 40, promoCode: "ПУШКА40", availableFrom: JAN_FROM, poster: threeIvans, href: ext(71670, 61568133) },
   { start: "2027-01-30T19:00:00+03:00", title: "Идиот", discount: 40, promoCode: "ПУШКА40", availableFrom: JAN_FROM, poster: idiot, href: ext(116238, 61568118) },
   { start: "2027-01-31T19:00:00+03:00", title: "Слуга двух господ", discount: 40, promoCode: "ПУШКА40", availableFrom: JAN_FROM, poster: servant, href: ext(68708, 61568126) },
+  { start: "2027-02-02T19:00:00+03:00", title: "Эта прекрасная жизнь", discount: 50, promoCode: "ПУШКА50", availableFrom: FEB_FROM, poster: beautifulLife, href: ext(68706, 62565634) },
+  { start: "2027-02-03T19:00:00+03:00", title: "Ложные признания", discount: 50, promoCode: "ПУШКА50", availableFrom: FEB_FROM, poster: falseConfessions, href: ext(71671, 62579938) },
+  { start: "2027-02-06T12:00:00+03:00", title: "Три Ивана", discount: 50, promoCode: "ПУШКА50", availableFrom: FEB_FROM, poster: threeIvans, href: ext(71670, 62582369) },
+  { start: "2027-02-18T19:00:00+03:00", title: "Сделка", discount: 50, promoCode: "ПУШКА50", availableFrom: FEB_FROM, poster: deal, href: ext(68649, 62583482) },
+  { start: "2027-02-25T19:00:00+03:00", title: "Заповедник", discount: 50, promoCode: "ПУШКА50", availableFrom: FEB_FROM, poster: reserve, href: ext(68683, 62584698) },
+  { start: "2027-02-27T12:00:00+03:00", title: "Три Ивана", discount: 50, promoCode: "ПУШКА50", availableFrom: FEB_FROM, poster: threeIvans, href: ext(71670, 62582371) },
+  { start: "2027-02-27T19:00:00+03:00", title: "Инспектор пришёл", discount: 50, promoCode: "ПУШКА50", availableFrom: FEB_FROM, poster: inspector, href: ext(73630, 62584703) },
+  { start: "2027-02-28T19:00:00+03:00", title: "Тартюф", discount: 50, promoCode: "ПУШКА50", availableFrom: FEB_FROM, poster: tartuffe, href: ext(71607, 62584706) },
 ];
 
 /** Shows still on sale: a card disappears at the moment the performance starts. */

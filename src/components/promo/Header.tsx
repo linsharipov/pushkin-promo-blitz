@@ -36,7 +36,7 @@ export function Header() {
             </a>
           </div>
           <span className="bg-primary px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-widest text-primary-foreground">
-            Чёрная пятница · до −40%
+            Чёрная пятница · до −50%
           </span>
         </div>
       </div>
